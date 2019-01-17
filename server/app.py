@@ -44,8 +44,8 @@ def ping_pong():
     return jsonify('pong!')
 
 
-@app.route('/TODOS', methods=['GET', 'POST'])
-def all_TODOS():
+@app.route('/todos', methods=['GET', 'POST'])
+def all_todos():
     response_object = {'status': 'success'}
     if request.method == 'POST':
         post_data = request.get_json()
@@ -61,7 +61,7 @@ def all_TODOS():
     return jsonify(response_object)
 
 
-@app.route('/TODOS/<todo_id>', methods=['GET', 'PUT', 'DELETE'])
+@app.route('/todos/<todo_id>', methods=['GET', 'PUT', 'DELETE'])
 def single_todo(todo_id):
     response_object = {'status': 'success'}
     if request.method == 'GET':
