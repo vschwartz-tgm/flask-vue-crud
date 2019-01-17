@@ -57,7 +57,7 @@ def all_todos():
         })
         response_object['message'] = 'todo added!'
     else:
-        response_object['TODOS'] = TODOS
+        response_object['todos'] = TODOS
     return jsonify(response_object)
 
 
@@ -124,4 +124,4 @@ def remove_todo(todo_id):
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(port=8080)

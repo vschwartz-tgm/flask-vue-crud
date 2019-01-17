@@ -38,10 +38,12 @@
                         @click="onDeleteTodo(todo)">
                     Delete
                 </button>
+                <!--
                 <router-link :to="`/order/${order.id}`"
                              class="btn btn-primary btn-sm">
                     Purchase
                 </router-link>
+                -->
               </td>
             </tr>
           </tbody>
@@ -66,14 +68,14 @@
                           placeholder="Enter todo">
             </b-form-input>
         </b-form-group>
-        <b-form-group id="form-asignee-group"
+        <b-form-group id="form-assignee-group"
                       label="Assignee:"
-                      label-for="form-asignee-input">
-          <b-form-input id="form-asignee-input"
+                      label-for="form-assignee-input">
+          <b-form-input id="form-assignee-input"
                         type="text"
-                        v-model="addTodoForm.asignee"
+                        v-model="addTodoForm.assignee"
                         required
-                        placeholder="Enter asignee">
+                        placeholder="Enter assignee">
           </b-form-input>
         </b-form-group>
         <b-form-group id="form-done-group">
@@ -101,14 +103,14 @@
                         placeholder="Enter todo">
           </b-form-input>
         </b-form-group>
-        <b-form-group id="form-asignee-edit-group"
+        <b-form-group id="form-assignee-edit-group"
                       label="Assignee:"
-                      label-for="form-asignee-edit-input">
-          <b-form-input id="form-asignee-edit-input"
+                      label-for="form-assignee-edit-input">
+          <b-form-input id="form-assignee-edit-input"
                         type="text"
-                        v-model="editForm.asignee"
+                        v-model="editForm.assignee"
                         required
-                        placeholder="Enter asignee">
+                        placeholder="Enter assignee">
           </b-form-input>
         </b-form-group>
         <b-form-group id="form-done-edit-group">
@@ -133,13 +135,13 @@ export default {
       todos: [],
       addTodoForm: {
         todo: '',
-        asignee: '',
+        assignee: '',
         done: [],
       },
       editForm: {
         id: '',
         todo: '',
-        asignee: '',
+        assignee: '',
         done: [],
       },
       message: '',
@@ -205,11 +207,11 @@ export default {
     },
     initForm() {
       this.addTodoForm.todo = '';
-      this.addTodoForm.asignee = '';
+      this.addTodoForm.assignee = '';
       this.addTodoForm.done = [];
       this.editForm.id = '';
       this.editForm.todo = '';
-      this.editForm.asignee = '';
+      this.editForm.assignee = '';
       this.editForm.done = [];
       this.editForm.id = '';
     },
@@ -220,7 +222,7 @@ export default {
       if (this.addTodoForm.done[0]) done = true;
       const payload = {
         todo: this.addTodoForm.todo,
-        asignee: this.addTodoForm.asignee,
+        assignee: this.addTodoForm.assignee,
         done, // property shorthand
       };
       this.addTodo(payload);
@@ -233,7 +235,7 @@ export default {
       if (this.editForm.done[0]) done = true;
       const payload = {
         todo: this.editForm.todo,
-        asignee: this.editForm.asignee,
+        assignee: this.editForm.assignee,
         done, // property shorthand
       };
       this.updateTodo(payload, this.editForm.id);
